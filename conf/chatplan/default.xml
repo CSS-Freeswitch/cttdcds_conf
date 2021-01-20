@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<include>
+  <context name="public">
+    <extension name="cmd">
+      <condition field="to_user" expression="^(cmd)$">
+        <action application="cmdctl" data="${_body}"/> 
+      </condition>
+    </extension>
+    <extension name="xml">
+      <condition field="to_user" expression="^(xml)$">
+        <action application="xmlctl" data="${_body}"/> 
+      </condition>
+    </extension>
+  </context>
+</include>
+
+

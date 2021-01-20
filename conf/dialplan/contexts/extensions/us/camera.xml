@@ -1,0 +1,14 @@
+<include>
+  <extension name="34020">
+    <condition field="destination_number" expression="^(3402000000132000000[1-9])$">
+      <action application="export" data="dialed_extension=$1"/>
+      <action inline="true" application="set" data="api_result=${conference(${destination_number} list count)}"/>
+    </condition>
+    <condition field="${api_result}" expression="^.*Conference .* not found$">
+      <action application="set" data="call_timeout=30"/>
+      <action application="lua" data="DAHUACAMERAL.lua"/>
+      <action application="conference" data="${dialed_extension}@mcu+flags{mintwo|vmute}"/>
+      <anti-action application="conference" data="${dialed_extension}@mcu"/>
+    </condition>
+  </extension>
+</include>

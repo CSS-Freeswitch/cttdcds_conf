@@ -1,0 +1,37 @@
+<include>
+ <extension name="34020">
+      <condition field="destination_number" expression="^(3402000000132000000[1-9])$">     
+                  <action application="export" data="dialed_extension=$1"/>
+            <action application="export" data="caller_id=${caller_id_number}_v"/>
+            <action application="set" data="call_timeout=30"/>
+            <action application="export" data="effective_caller_id_name=${caller_id_number}_v"/>
+            <action application="export" data="effective_callee_id_name=${dialed_extension}"/>
+	     <action application="export" data="origination_caller_id_number=34020000002000000001"/>
+            <action application="export" data="sip_contact_user=cttdcds"/> 
+            <action application="export" data="update-refresher=false"/> 
+            <action application="export" data="ndlb_sendrecv_in_session=true"/> 
+            <action application="export" data="rtp_timeout_sec=360000"/>  
+            <!--action application="export" data="rtp_append_audio_sdp=a=sendonly"/-->  
+            <!--action application="export" data="rtp_append_video_sdp=a=recvonly"/--> 
+            <action application="export" data="sdp_user_name=Play"/> 
+ 	     <action application="export" data="sip_h_Subject=${dialed_extension}:0,${caller_id}:0"/>
+             <action application="record_session" data="/home/record/${strftime(%Y-%m-%d-%H:%M:%S)}_${dialed_extension}_${caller_id_number}.mp4"/>
+            <!--action application="answer"/-->
+	     <action application="bridge" data="{absolute_codec_string='PCMA,PCMU,PS,H264'}user/${dialed_extension}@${domain_name}"/>     
+         <action application="export" data="dialed_extension=$1"/>
+            <action application="export" data="caller_id=${caller_id_number}"/>
+            <action application="set" data="call_timeout=30"/>
+            <action application="export" data="effective_caller_id_name=${caller_id_number}_a"/>
+            <action application="export" data="effective_callee_id_name=${dialed_extension}"/>
+            <action application="export" data="origination_caller_id_number=34020000002000000001"/>
+            <action application="export" data="sip_contact_user=cttdcds"/> 
+            <action application="export" data="nolocal:update-refresher=false"/>  
+            <action application="export" data="nolocal:ndlb_sendrecv_in_session=true"/> 
+            <action application="export" data="rtp_timeout_sec=360000"/>  
+            <action application="export" data="nolocal:sdp_user_name=Talk"/> 
+            <action application="export" data="sip_h_Subject=${dialed_extension}:0,${caller_id}:0"/>
+            <action application="set" data="execute_on_answer=record_session /home/record/${strftime(%Y-%m-%d-%H:%M:%S)}_${dialed_extension}_${caller_id_number}.wav"/>
+         <action application="bridge" data="{absolute_codec_string='PCMA,PCMU'}user/${dialed_extension}@${domain_name}"/>  
+        </condition> 
+ </extension>
+</include>

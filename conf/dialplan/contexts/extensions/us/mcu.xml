@@ -1,0 +1,19 @@
+<include>
+  <extension name="mcu">
+    <condition field="destination_number" expression="^(8211.*)$">
+      <action application="export" data="dialed_extension=$1"/>
+      <action application="export" data="caller_id=${caller_id_number}"/>
+      <action application="set" data="call_timeout=30"/>
+      <action application="set" data="hangup_after_bridge=true"/>
+      <action application="set" data="continue_on_fail=true"/>
+      <action application="export" data="sip_contact_user=cttdcds"/>
+      <action application="lua" data="ITCMCU.lua"/>
+      <!--action application="bridge" data="{sip_invite_req_uri=sip:10.16.1.211:5060,sip_invite_full_to=sip:10.16.1.211:5060}user/${dialed_extension}@${domain_name}"/-->
+      <action application="bridge" data="{sip_invite_req_uri=${contact_ip},sip_invite_full_to=${contact_ip}}user/${dialed_extension}@${domain_name}"/>
+      <action application="answer"/>
+      <action application="sleep" data="1000"/>
+      <action application="playback" data="tmp/${originate_disposition}.wav"/>
+      <action application="hangup" data="${originate_disposition}"/>
+    </condition>
+  </extension>
+</include>

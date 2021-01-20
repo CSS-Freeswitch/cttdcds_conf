@@ -1,0 +1,34 @@
+<include>
+  <!-- change@houlin -->
+  <extension name="loop_A">
+    <condition field="destination_number" expression="^(.*)_a$">
+      <action application="export" data="dialed_extension=$1"/>
+      <action application="export" data="caller_id=${caller_id_number}"/>
+      <action application="set" data="call_timeout=30"/>
+      <action application="set" data="hangup_after_bridge=true"/>
+      <action application="set" data="continue_on_fail=true"/>
+      <action application="export" data="absolute_codec_string=PCMA,PCMU"/>
+      <action application="export" data="effective_caller_id_name=${caller_id_number}"/>
+      <action application="export" data="effective_callee_id_name=${dialed_extension}"/>
+      <action application="export" data="sip_contact_user=cttdcds"/>
+      <action application="bridge" data="sofia/gateway/gateway_as/${dialed_extension}"/>
+      <action application="event" data="Event-Subclass=myevent::notify,Event-Name=CUSTOM,state=Originate_Failed,cause=${originate_disposition}"/>
+    </condition>
+  </extension>
+  <extension name="loop_V">
+    <condition field="destination_number" expression="^(.*)_v$">
+      <action application="export" data="dialed_extension=$1"/>
+      <action application="export" data="caller_id=${caller_id_number}"/>
+      <action application="set" data="call_timeout=30"/>
+      <action application="set" data="hangup_after_bridge=true"/>
+      <action application="set" data="continue_on_fail=true"/>
+      <action application="export" data="absolute_codec_string=PCMA,PCMU,H264"/>
+      <action application="export" data="effective_caller_id_name=${caller_id_number}"/>
+      <action application="export" data="effective_callee_id_name=${dialed_extension}"/>
+      <action application="export" data="sip_contact_user=cttdcds"/>
+      <action application="bridge" data="sofia/gateway/gateway_as/${dialed_extension}"/>
+      <action application="event" data="Event-Subclass=myevent::notify,Event-Name=CUSTOM,state=Originate_Failed,cause=${originate_disposition}"/>
+    </condition>
+  </extension>
+  <!-- change end -->
+</include>

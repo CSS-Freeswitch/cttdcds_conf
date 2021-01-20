@@ -1,0 +1,36 @@
+<include>
+  <!-- change@houlin -->
+  <user id="82110110">
+    <params>
+      <param name="password" value="123456"/>
+      <param name="vm-password" value="82110110"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="82110110"/>
+      <variable name="user_context" value="users"/>
+      <variable name="effective_caller_id_name" value="82110110"/>
+      <variable name="effective_caller_id_number" value="82110110"/>
+      <variable name="record" value="no"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id}"/>
+    </variables>
+  </user>
+  <user id="82110111">
+    <params>
+      <param name="password" value="123456"/>
+      <param name="vm-password" value="82110111"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="82110111"/>
+      <variable name="user_context" value="users"/>
+      <variable name="effective_caller_id_name" value="82110111"/>
+      <variable name="effective_caller_id_number" value="82110111"/>
+      <variable name="record" value="no"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id}"/>
+    </variables>
+  </user>
+  <!-- change end -->
+</include>

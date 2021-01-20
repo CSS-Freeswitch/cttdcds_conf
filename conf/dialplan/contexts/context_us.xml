@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<include>
+  <context name="users">
+    <X-PRE-PROCESS cmd="include" data="extensions/us/*.xml"/>
+  </context>
+</include>

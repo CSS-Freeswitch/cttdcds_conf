@@ -1,0 +1,10 @@
+<include>
+  <context name="public">
+    <extension name="public_gateway_mcu">
+      <condition field="network_addr" expression="^.*$"/>
+      <condition field="destination_number" expression="^(.*)$">
+        <action application="transfer" data="$1 XML users"/>
+      </condition>
+    </extension>
+  </context>
+</include>
