@@ -453,4 +453,8 @@
   <X-PRE-PROCESS cmd="set" data="video_no_avatar_png=$${images_dir}/cttdcds-avatar.png"/>
   <!-- change end -->
 
+  <!-- change@suy:2021-2-1 -->
+  <X-PRE-PROCESS cmd="set" data="cttdcds_odbc_dsn=pgsql://hostaddr=127.0.0.1 dbname=cttdcds user=css password='css66018' options='-c client_min_messages=NOTICE' application_name='cttdcds'"/>
+  <!-- change end -->
+
 </include>

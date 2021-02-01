@@ -7,8 +7,8 @@
     <condition field="${api_result}" expression="^.*Conference .* not found$">
       <action application="set" data="call_timeout=30"/>
       <action application="lua" data="DAHUACAMERAL.lua"/>
-      <action application="conference" data="${dialed_extension}@mcu+flags{mintwo|vmute}"/>
-      <anti-action application="conference" data="${dialed_extension}@mcu"/>
+      <action application="conference" data="${dialed_extension}@camera+flags{mintwo|vmute}"/>
+      <anti-action application="conference" data="${dialed_extension}@camera"/>
     </condition>
   </extension>
 </include>

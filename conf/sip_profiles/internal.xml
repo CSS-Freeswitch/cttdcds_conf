@@ -11,7 +11,7 @@
     <!--param name="ping-mean-interval" value="10"/-->
     <!--param name="registration-thread-frequency" value="60"/-->
     <param name="proxy-info" value="true"/>
-    <param name="odbc-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=cttdcds user=css password='css66018' options='-c client_min_messages=NOTICE' application_name='cttdcds'"/>
+    <param name="odbc-dsn" value="$${cttdcds_odbc_dsn}"/>
     <param name="pass-callee-id" value="false"/>
     <param name="minimum-session-expires" value="90"/>
     <param name="session-timeout" value="180"/>
@@ -35,6 +35,7 @@
     <param name="rtp-timer-name" value="soft"/>
     <param name="hold-music" value="$${hold_music}"/>
     <!--param name="apply-nat-acl" value="nat.auto"/-->
+    <!-- change@suy:2021-2-1解决公网freeswitch呼不通的问题 -->
     <param name="apply-candidate-acl" value="localnet.auto"/>
     <!--param name="aggressive-nat-detection" value="true"/-->
     <param name="apply-inbound-acl" value="domains"/>

@@ -43,7 +43,7 @@
     <param name="tls-verify-depth" value="2"/>
     <param name="tls-verify-in-subjects" value=""/>
     <param name="tls-version" value="$${sip_tls_version}"/>
-    <param name="odbc-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=cttdcds user=css password='css66018' options='-c client_min_messages=NOTICE' application_name='cttdcds'"/>
+    <param name="odbc-dsn" value="$${cttdcds_odbc_dsn}"/>
     <param name="user-agent-string" value="cttdcds"/>
     <param name="minimum-session-expires" value="90"/>
     <param name="session-timeout" value="180"/>

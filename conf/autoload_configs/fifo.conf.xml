@@ -2,7 +2,7 @@
   <settings>
     <param name="delete-all-outbound-member-on-startup" value="false"/>
     <!-- change@suy -->
-    <param name="odbc-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=cttdcds user=css password='css66018' options='-c client_min_messages=NOTICE' application_name='cttdcds'"/>
+    <param name="odbc-dsn" value="$${cttdcds_odbc_dsn}"/>
   </settings>
   <fifos>
     <fifo name="cool_fifo@$${domain}" importance="0">

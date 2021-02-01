@@ -6,8 +6,8 @@
     <room name="3001@$${domain}" status="FreeSWITCH"/>
   </advertise>
 
-  <!-- These are the default keys that map when you do not specify a caller control group -->	
-  <!-- Note: none and default are reserved names for group names.  Disabled if dist-dtmf member flag is set. -->	
+  <!-- These are the default keys that map when you do not specify a caller control group -->
+  <!-- Note: none and default are reserved names for group names.  Disabled if dist-dtmf member flag is set. -->
   <caller-controls>
     <group name="default">
       <control action="mute" digits="0"/>
@@ -134,24 +134,42 @@
       <param name="channels" value="2"/>
       <param name="interval" value="20"/>
       <param name="energy-level" value="200"/>
+      <!-- <param name="tts-engine" value="flite"/> -->
+      <!-- <param name="tts-voice" value="kal16"/> -->
       <param name="caller-id-name" value="$${outbound_caller_name}"/>
       <param name="caller-id-number" value="$${outbound_caller_id}"/>
-      <!--param name="auto-record" value="home/record/${conference_name}_${strftime(%Y-%m-%d-%H-%M-%S)}.mp4"/-->
-      <param name="min-required-recording-participants" value="1"/>
-      <param name="comfort-noise" value="true"/>
-       <param name="terminate-on-silence" value="86400"/>
-       <param name="video-mute-banner" value="none"/>
-      <param name="conference-flags" value="video-floor-only|rfc-4579|livearray-sync|minimize-video-encoding|video-mute-exit-canvas"/>
-      <param name="video-mode" value="mux"/> 
-      <param name="video-layout-name" value="1x1"/>
-      <!--param name="video-canvas-size" value="352x288"/-->
-      <param name="video-canvas-size" value="704x576"/>
-       <!--param name="video-canvas-size" value="1024x900"/-->
-      <param name="video-canvas-bgcolor" value="#333333"/>
+      <param name="comfort-noise" value="false"/>
+      <param name="conference-flags" value="livearray-json-status|json-events|video-floor-only|rfc-4579|livearray-sync|minimize-video-encoding|manage-inbound-video-bitrate|video-required-for-canvas|video-mute-exit-canvas|mute-detect"/>
+      <param name="video-auto-floor-msec" value="1000"/>
+      <param name="video-mode" value="mux"/>
+      <param name="video-layout-name" value="group:grid"/>
+      <param name="video-canvas-size" value="1280x720"/>
+      <param name="video-canvas-bgcolor" value="#000000"/>
       <param name="video-layout-bgcolor" value="#000000"/>
-      <param name="video-codec-bandwidth" value="2mb"/>
-      <param name="video-fps" value="15"/>
-       <param name="video-canvas-count" value="1"/>
+      <param name="video-codec-bandwidth" value="3mb"/>
+      <param name="video-fps" value="30"/>
+    </profile>
+
+    <profile name="camera">
+      <param name="domain" value="$${domain}"/>
+      <param name="rate" value="48000"/>
+      <param name="channels" value="2"/>
+      <param name="interval" value="20"/>
+      <param name="energy-level" value="200"/>
+      <!-- <param name="tts-engine" value="flite"/> -->
+      <!-- <param name="tts-voice" value="kal16"/> -->
+      <param name="caller-id-name" value="$${outbound_caller_name}"/>
+      <param name="caller-id-number" value="$${outbound_caller_id}"/>
+      <param name="comfort-noise" value="false"/>
+      <param name="conference-flags" value="livearray-json-status|json-events|video-floor-only|rfc-4579|livearray-sync|minimize-video-encoding|manage-inbound-video-bitrate|video-required-for-canvas|video-mute-exit-canvas|mute-detect"/>
+      <param name="video-auto-floor-msec" value="1000"/>
+      <param name="video-mode" value="mux"/>
+      <param name="video-layout-name" value="1x1"/>
+      <param name="video-canvas-size" value="1280x720"/>
+      <param name="video-canvas-bgcolor" value="#000000"/>
+      <param name="video-layout-bgcolor" value="#000000"/>
+      <param name="video-codec-bandwidth" value="3mb"/>
+      <param name="video-fps" value="30"/>
     </profile>
 
   </profiles>

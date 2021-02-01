@@ -9,7 +9,7 @@
       <action application="set" data="continue_on_fail=true"/> 
       <action application="export" data="sip_contact_user=cttdcds"/>
       <action inline="true" application="set" data="emergency_contact=${user_data($1@${domain_name} var emergency_contact)}"/> 
-      <action application="set" data="record_concat_video=true"/>
+      <!-- <action application="set" data="record_concat_video=true"/> -->
       <!-- <action application="set" data="execute_on_answer=record_session /home/record/${strftime(%Y-%m-%d-%H:%M:%S)}_${dialed_extension}_${caller_id_number}.mp4"/> -->
       <action application="bridge" data="user/${dialed_extension}@${domain_name}"/>
       <action application="answer"/>

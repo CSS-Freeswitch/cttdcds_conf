@@ -184,7 +184,7 @@
     <!-- <param name="core-db-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=freeswitch user=freeswitch password='' options='-c client_min_messages=NOTICE'" /> -->
     <!-- <param name="core-db-dsn" value="postgresql://freeswitch:@127.0.0.1/freeswitch?options=-c%20client_min_messages%3DNOTICE" /> -->
     <!-- change@suy -->
-    <param name="core-db-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=cttdcds user=css password='css66018' options='-c client_min_messages=NOTICE' application_name='cttdcds'"/>
+    <param name="core-db-dsn" value="$${cttdcds_odbc_dsn}"/>
     <!-- <param name="core-db-dsn" value="dsn:username:password" /> -->
     <!-- 
 	 Allow to specify the sqlite db at a different location (In this example, move it to ramdrive for
